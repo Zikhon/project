@@ -1,65 +1,69 @@
-import 'dart:async';
-import 'package:flutter/material.dart';
-// import 'package:flare_flutter/flare_actor.dart';
+// // import 'package:flutter/materail.dart';
+// import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+// void main(){
+//   runApp(const MyApp() );
+// }
+
+// class MyApp extends StatelessWidget {
+//   const MyApp({Key? key}) : super(key: key);
+//   @override
+//   Widget build(BuildContext context){
+//     return const MaterialApp(
+//       home: RootPage(),
+//     );
+//   }
+// }
+//  class RootPage extends StatefulWidget {
+//    const RootPage({Key? key}) : super(key: key);
+ 
+//    @override
+//    State<RootPage> createState() => _RootPageState();
+//  }
+ 
+//  class _RootPageState extends State<RootPage> {
+//    @override
+//    Widget build(BuildContext context) {
+//      return  Scaffold(
+//       appBar: AppBar() ,
+//      );
+
+//    }
+//  }
+
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Quickloc8 Splash',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green
       ),
-      home: SplashScreen(),
+      home: const  RootPage(),
     );
   }
 }
 
-class SplashScreen extends StatefulWidget {
+class RootPage extends StatefulWidget {
+  const RootPage({Key? key}) : super(key: key);
+
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  State<RootPage> createState() => _RootPageState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-    Timer(
-      Duration(seconds: 3),
-      () => Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => HomeScreen()),
-      ),
-    );
-  }
-
+class _RootPageState extends State<RootPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-        child: FlareActor(
-          'assets/quickloc8.flr', // Assuming you have a Flare animation file
-          animation: 'pulsate',
-        ),
-      ),
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // Your main application content goes here
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Quickloc8 App'),
-      ),
-      body: Center(
-        child: Text('Welcome to Quickloc8!'),
-      ),
+      appBar: AppBar(),
     );
   }
 }
